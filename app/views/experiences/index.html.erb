@@ -1,9 +1,29 @@
-<h1>My Experiences</h1>
+<div class="row">
+  <div class="col-md-3">
+    <h2>Tyler J. Chrestoff</h2>
+    <p>Life-long student with a passion for good software that helps everyone. Over 10 years experience in industries ranging metrology to insurance. Patient and driven to help.</p>
+    
+    <h3><i class="fa-solid fa-phone"></i> Contact</h3>
+    <ul class="list-unstyled">
+      <li><a href="mailto:datummine@proton.me">datummine@proton.me</a></li>
+      <li><a href="tel:740-739-7909">740-739-7909</a></li>
+      <li><a href="https://github.com/datum4Z" target="_blank">GitHub</a></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <section>
+      <h2><i class="fas fa-briefcase"></i> Experience</h2>
 
-<ul>
-  <% @experiences.each do |experience| %>
-    <li><%= link_to experience.position, experience_path(experience) %></li>
-  <% end %>
-</ul>
+      <% @experiences.each do |experience| %>
 
-<%= link_to 'New Experience', new_experience_path %>
+      <article class="experience">
+        <h3><%= link_to experience.position, experience_path(experience) %></h3>
+        <p><strong><%= experience.company %></strong></p>
+        <p><%= format_date_range(experience.start_date, experience.end_date) %></p>
+        <p><%= experience.description %></p>
+      </article>
+
+      <% end %>
+    </section>
+  </div>
+</div>
