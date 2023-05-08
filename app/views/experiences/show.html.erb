@@ -1,0 +1,10 @@
+<h1><%= @experience.position %> at <%= @experience.company %></h1>
+<p><%= @experience.description %></p>
+<p><%= @experience.start_date %> - <%= @experience.end_date %></p>
+
+<%= link_to 'Edit', edit_experience_path(@experience) %> |
+<%= link_to 'Back', experiences_path %>
+
+<%= button_to 'Delete', experience_path(@experience),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to delete this experience?' } %>

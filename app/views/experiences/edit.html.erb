@@ -1,0 +1,34 @@
+<h1>Edit Experience</h1>
+
+<%= form_with model: @experience, url: experience_path(@experience), method: :patch do |form| %>
+  <div>
+    <%= form.label :company %>
+    <%= form.text_field :company %>
+  </div>
+
+  <div>
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div>
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit 'Save' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', experiences_path %>
