@@ -1,4 +1,6 @@
-class ExperienceDetailsController < ApplicationController  
+class ExperienceDetailsController < ApplicationController
+  before_action :authenticate_admin!
+
   def create
     @experience = Experience.find(params[:experience_id])
     @detail = @experience.experience_details.build(detail_params)
@@ -32,6 +34,10 @@ class ExperienceDetailsController < ApplicationController
   end
 
   private
+
+  def authenticate_admin!
+    redirect_to login_path unless session[:admin]
+  end
 
   def detail_params
     params.require(:experience_detail).permit(:description)
