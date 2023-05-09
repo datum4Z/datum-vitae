@@ -21,6 +21,14 @@
         <p><strong><%= experience.company %></strong></p>
         <p><%= format_date_range(experience.start_date, experience.end_date) %></p>
         <p><%= experience.description %></p>
+
+        <ul>
+          <% experience.experience_details.each do |detail| %>
+
+          <li><%= detail.description %></li>
+          
+          <% end %>
+        </ul>
       </article>
 
       <% end %>

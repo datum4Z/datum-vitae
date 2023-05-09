@@ -2,7 +2,7 @@ class ExperiencesController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
 
   def index
-    @experiences = Experience.all
+    @experiences = Experience.includes(:experience_details)
   end
 
   def show
