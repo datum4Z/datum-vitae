@@ -1,0 +1,9 @@
+<h1>Edit Experience Detail</h1>
+
+<%= form_for [@experience, @detail] do |f| %>
+  <%= f.label :description %>
+  <%= f.text_area :description, value: @detail.description %>
+  <%= f.submit "Save Changes" %>
+<% end %>
+
+<%= link_to "Back to Experience", experience_path(@experience) %>

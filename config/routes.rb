@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :experiences
-  root 'experiences#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :experiences do
+    resources :experience_details
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root to: 'experiences#index'
 end
