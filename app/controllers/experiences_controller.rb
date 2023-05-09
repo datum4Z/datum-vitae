@@ -1,4 +1,6 @@
-class ExperiencesController < ApplicationController  
+class ExperiencesController < ApplicationController 
+  before_action :authenticate_admin!, except: [:index, :show]
+
   def index
     @experiences = Experience.all
   end
@@ -46,6 +48,10 @@ class ExperiencesController < ApplicationController
   end
 
   private
+
+  def authenticate_admin!
+    redirect_to login_path unless session[:admin]
+  end
 
   def experience_params
     params.require(:experience).permit(:company, :position, :start_date, :end_date, :description, experience_details_attributes: [:id, :bullet, :_destroy])
